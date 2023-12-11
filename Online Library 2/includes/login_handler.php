@@ -34,10 +34,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             die();
         }
 
-        $_SESSION["user_id"] = $result["id"];
+        $_SESSION["user_id"] = $result["email"];
         $_SESSION["user_email"] = htmlspecialchars($result["email"]);
 
         $_SESSION["last_regeneration"] = time();
+
 
         header("Location: ../main_menu.php?login=success");
         $pdo = null;
