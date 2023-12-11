@@ -16,12 +16,19 @@ require_once 'includes/login_view.php';
 </head>
 <body>
     <h1>Welcome to the Library</h1>
-    <p><a href="includes/login_and_register.php">Login/Register</a> to borrow books.</p>/* 
+
+    <?php
+
+    if (!isset($_SESSION['user_id'])){ ?>
+        <p><a href="includes/login_and_register.php">Login/Register</a> to borrow books.</p>
+    <?php } ?>
+
+
     <form action="includes/logout.php" method="post">
         <button>Logout</button>
     </form>
 
-    <h3><?php output_email(); ?></h3><!-- Not working properly, will fix -->
+    <h3><?php output_email(); ?></h3><!-- Working now -->
 
     <!-- Display a list of available books -->
     <?php
